@@ -1,0 +1,24 @@
+version: '3'
+services:
+  app:
+    container_name: gpw-app
+    build:
+      context: .
+      dockerfile: ./.docker/Dockerfile
+    ports:
+      - "8080:8080"
+    environment:
+      MYSQL_HOST: mysql
+      MYSQL_PORT: 3306
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+      APP_TEMP_DIR: /app-data
+      spring_profiles_active: prod
+    networks:
+      - gpw-network
+    volumes:
+      - ./docker-volumes/app-data:/app-data
+    entrypoint: java -jar /app-build/target/gpw-app.jar
+
+networks:
+  gpw-network:
