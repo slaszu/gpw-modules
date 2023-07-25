@@ -1,4 +1,4 @@
-package pl.slaszu.gpw.datacenter.stock.application.ListStockPrice;
+package pl.slaszu.gpw.datacenter.application.ListStockPrice;
 
 import java.util.List;
 

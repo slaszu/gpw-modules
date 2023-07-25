@@ -1,13 +1,13 @@
-package pl.slaszu.gpw.datacenter.stock.application.CreateStock;
+package pl.slaszu.gpw.datacenter.application.CreateStock;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import pl.slaszu.gpw.datacenter.stock.domain.model.Stock;
-import pl.slaszu.gpw.datacenter.stock.domain.model.StockPrice;
-import pl.slaszu.gpw.datacenter.stock.domain.repository.StockPriceRepositoryInterface;
-import pl.slaszu.gpw.datacenter.stock.domain.repository.StockRepositoryInterface;
+import pl.slaszu.gpw.datacenter.domain.model.Stock;
+import pl.slaszu.gpw.datacenter.domain.model.StockPrice;
+import pl.slaszu.gpw.datacenter.domain.repository.StockPriceRepositoryInterface;
+import pl.slaszu.gpw.datacenter.domain.repository.StockRepositoryInterface;
 
 
 import java.util.*;

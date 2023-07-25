@@ -1,8 +1,8 @@
-package pl.slaszu.gpw.datacenter.stock.domain.repository;
+package pl.slaszu.gpw.datacenter.domain.repository;
 
 
-import pl.slaszu.gpw.datacenter.stock.domain.model.Stock;
-import pl.slaszu.gpw.datacenter.stock.domain.model.StockPrice;
+import pl.slaszu.gpw.datacenter.domain.model.Stock;
+import pl.slaszu.gpw.datacenter.domain.model.StockPrice;
 
 import java.util.Date;
 import java.util.Optional;

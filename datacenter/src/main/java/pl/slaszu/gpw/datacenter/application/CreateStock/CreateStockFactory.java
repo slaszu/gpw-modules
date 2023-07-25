@@ -1,8 +1,8 @@
-package pl.slaszu.gpw.datacenter.stock.application.CreateStock;
+package pl.slaszu.gpw.datacenter.application.CreateStock;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
-import pl.slaszu.gpw.datacenter.stock.domain.model.Stock;
+import pl.slaszu.gpw.datacenter.domain.model.Stock;
 
 
 @Service

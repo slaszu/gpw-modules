@@ -1,4 +1,4 @@
-package pl.slaszu.gpw.datacenter.stock.domain.model;
+package pl.slaszu.gpw.datacenter.domain.model;
 
 import jakarta.persistence.*;
 import lombok.*;

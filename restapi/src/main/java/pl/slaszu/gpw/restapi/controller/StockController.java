@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import pl.slaszu.gpw.datacenter.stock.application.ListStocks.ListStocksService;
-import pl.slaszu.gpw.datacenter.stock.application.ListStocks.StockViewModel;
+import pl.slaszu.gpw.datacenter.application.ListStocks.ListStocksService;
+import pl.slaszu.gpw.datacenter.application.ListStocks.StockViewModel;
 
 import java.util.List;
 

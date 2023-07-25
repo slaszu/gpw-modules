@@ -1,10 +1,10 @@
-package pl.slaszu.gpw.datacenter.stock.application.ListStockPrice;
+package pl.slaszu.gpw.datacenter.application.ListStockPrice;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import pl.slaszu.gpw.datacenter.stock.domain.model.StockPrice;
+import pl.slaszu.gpw.datacenter.domain.model.StockPrice;
 
 
 import java.io.Serializable;

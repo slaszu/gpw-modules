@@ -1,4 +1,4 @@
-package pl.slaszu.gpw.datacenter.stock.application.ListStockPrice;
+package pl.slaszu.gpw.datacenter.application.ListStockPrice;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;

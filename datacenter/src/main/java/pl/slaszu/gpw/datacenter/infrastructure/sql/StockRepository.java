@@ -1,9 +1,9 @@
-package pl.slaszu.gpw.datacenter.stock.infrastructure.sql;
+package pl.slaszu.gpw.datacenter.infrastructure.sql;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import pl.slaszu.gpw.datacenter.stock.domain.model.Stock;
-import pl.slaszu.gpw.datacenter.stock.domain.repository.StockRepositoryInterface;
+import pl.slaszu.gpw.datacenter.domain.model.Stock;
+import pl.slaszu.gpw.datacenter.domain.repository.StockRepositoryInterface;
 
 import java.util.Optional;
 import java.util.UUID;

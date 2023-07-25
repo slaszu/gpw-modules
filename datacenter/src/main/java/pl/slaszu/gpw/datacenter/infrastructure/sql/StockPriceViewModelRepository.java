@@ -1,11 +1,11 @@
-package pl.slaszu.gpw.datacenter.stock.infrastructure.sql;
+package pl.slaszu.gpw.datacenter.infrastructure.sql;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Repository;
-import pl.slaszu.gpw.datacenter.stock.application.ListStockPrice.StockPriceViewModel;
-import pl.slaszu.gpw.datacenter.stock.application.ListStockPrice.StockPriceViewModelRepositoryInterface;
+import pl.slaszu.gpw.datacenter.application.ListStockPrice.StockPriceViewModel;
+import pl.slaszu.gpw.datacenter.application.ListStockPrice.StockPriceViewModelRepositoryInterface;
 
 import java.util.List;
 

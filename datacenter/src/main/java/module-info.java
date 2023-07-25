@@ -8,7 +8,8 @@ module datacenter {
     requires com.fasterxml.jackson.annotation;
     requires spring.beans;
     requires spring.tx;
+    requires spring.boot.autoconfigure;
 
-    exports pl.slaszu.gpw.datacenter.stock.application.ListStocks;
-    exports pl.slaszu.gpw.datacenter.stock.application.ListStockPrice;
+    exports pl.slaszu.gpw.datacenter.application.ListStocks;
+    exports pl.slaszu.gpw.datacenter.application.ListStockPrice;
 }

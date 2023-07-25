@@ -1,4 +1,4 @@
-package pl.slaszu.gpw.datacenter.stock.application.CreateStock;
+package pl.slaszu.gpw.datacenter.application.CreateStock;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
