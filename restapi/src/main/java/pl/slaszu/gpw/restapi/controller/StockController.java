@@ -1,4 +1,4 @@
-package pl.slaszu.gpw.restapi.stock.infrastructure.rest;
+package pl.slaszu.gpw.restapi.controller;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import pl.slaszu.gpw.restapi.stock.application.ListStocks.ListStocksService;
-import pl.slaszu.gpw.restapi.stock.application.ListStocks.StockViewModel;
+import pl.slaszu.gpw.datacenter.stock.application.ListStocks.ListStocksService;
+import pl.slaszu.gpw.datacenter.stock.application.ListStocks.StockViewModel;
 
 import java.util.List;
 

@@ -8,9 +8,10 @@ import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
-import pl.slaszu.gpw.restapi.stocksource.domain.DataProviderInterface;
-import pl.slaszu.gpw.restapi.stocksource.domain.StockDto;
-import pl.slaszu.gpw.restapi.stocksource.domain.exception.FetchStocksException;
+import pl.slaszu.gpw.dataprovider.stocksource.domain.DataProviderInterface;
+import pl.slaszu.gpw.dataprovider.stocksource.domain.StockDto;
+import pl.slaszu.gpw.dataprovider.stocksource.domain.exception.FetchStocksException;
+
 
 import java.net.URL;
 import java.text.ParseException;

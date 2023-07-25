@@ -4,8 +4,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
-import pl.slaszu.gpw.restapi.stocksource.domain.FetchStocksService;
-import pl.slaszu.gpw.restapi.stocksource.domain.exception.FetchStocksException;
+import pl.slaszu.gpw.dataprovider.stocksource.domain.FetchStocksService;
+import pl.slaszu.gpw.dataprovider.stocksource.domain.exception.FetchStocksException;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
