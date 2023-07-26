@@ -2,13 +2,15 @@ package pl.slaszu.gpw.datacenter.application.CreateStock;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import pl.slaszu.gpw.datacenter.application.CreateStock.Event.StockChangedEvent;
+import pl.slaszu.gpw.datacenter.application.CreateStock.Event.StockPriceChangedEvent;
 import pl.slaszu.gpw.datacenter.domain.model.Stock;
 import pl.slaszu.gpw.datacenter.domain.model.StockPrice;
 import pl.slaszu.gpw.datacenter.domain.repository.StockPriceRepositoryInterface;
 import pl.slaszu.gpw.datacenter.domain.repository.StockRepositoryInterface;
-
 
 import java.util.*;
 
@@ -21,9 +23,13 @@ public class CreateStockService {
 
     private StockPriceRepositoryInterface stockPriceRepository;
 
+    private ApplicationEventPublisher eventPublisher;
+
     public void create(CreateStockCommand command) {
-        // TODO: 13.07.2023 fire events to refresh redis cache
         List<Object> events = this.save(command);
+        events.forEach(o -> {
+            this.eventPublisher.publishEvent(o);
+        });
     }
 
     @Transactional
@@ -35,6 +41,10 @@ public class CreateStockService {
         Stock stock = this.getOrCreateStock(command);
         Stock stockSaved = this.stockRepository.save(stock);
 
+        if (!stockSaved.equals(stock)) {
+            events.add(new StockChangedEvent(stockSaved));
+        }
+
         CreateStockPriceCommand createStockPriceCommand = command.getCreateStockPriceCommand();
         if (createStockPriceCommand != null) {
             // stock price
@@ -43,6 +53,9 @@ public class CreateStockService {
 
             StockPrice stockPriceSaved = this.stockPriceRepository.save(stockPrice);
 
+            if (!stockPriceSaved.equals(stockPrice)) {
+                events.add(new StockPriceChangedEvent(stockPriceSaved));
+            }
         }
 
         return events;
