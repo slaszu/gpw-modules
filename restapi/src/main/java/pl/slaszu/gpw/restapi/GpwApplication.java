@@ -15,7 +15,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 // TODO: 27.04.2023 cache data and refresh after db data chenged
 // TODO: 06/05/2023 on production dont show full exception stack 
 
-@SpringBootApplication()
+@SpringBootApplication
 @ComponentScan(nameGenerator = FullyQualifiedAnnotationBeanNameGenerator.class)
 @EnableScheduling
 @OpenAPIDefinition(

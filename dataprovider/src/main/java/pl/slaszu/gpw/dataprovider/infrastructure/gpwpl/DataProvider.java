@@ -1,14 +1,14 @@
-package pl.slaszu.gpw.dataprovider.stocksource.infrastructure.gpwpl;
+package pl.slaszu.gpw.dataprovider.infrastructure.gpwpl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import pl.slaszu.gpw.dataprovider.calendar.CalendarDayService;
-import pl.slaszu.gpw.dataprovider.stocksource.domain.DataProviderInterface;
-import pl.slaszu.gpw.dataprovider.stocksource.domain.StockDto;
-import pl.slaszu.gpw.dataprovider.stocksource.domain.exception.FetchStocksException;
-import pl.slaszu.gpw.dataprovider.stocksource.domain.exception.FreeDayException;
-import pl.slaszu.gpw.dataprovider.stocksource.infrastructure.gpwpl.dataprovider.ArchiveDataProvider;
-import pl.slaszu.gpw.dataprovider.stocksource.infrastructure.gpwpl.dataprovider.TodayDataProvider;
+import pl.slaszu.gpw.dataprovider.infrastructure.calendar.CalendarDayService;
+import pl.slaszu.gpw.dataprovider.domain.exception.FetchStocksException;
+import pl.slaszu.gpw.dataprovider.domain.exception.FreeDayException;
+import pl.slaszu.gpw.dataprovider.domain.DataProviderInterface;
+import pl.slaszu.gpw.dataprovider.domain.dto.StockDto;
+import pl.slaszu.gpw.dataprovider.infrastructure.gpwpl.dataprovider.ArchiveDataProvider;
+import pl.slaszu.gpw.dataprovider.infrastructure.gpwpl.dataprovider.TodayDataProvider;
 
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;

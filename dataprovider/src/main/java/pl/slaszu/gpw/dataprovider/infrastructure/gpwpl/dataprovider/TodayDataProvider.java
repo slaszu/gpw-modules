@@ -1,4 +1,4 @@
-package pl.slaszu.gpw.dataprovider.stocksource.infrastructure.gpwpl.dataprovider;
+package pl.slaszu.gpw.dataprovider.infrastructure.gpwpl.dataprovider;
 
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
@@ -9,9 +9,9 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
-import pl.slaszu.gpw.dataprovider.stocksource.domain.DataProviderInterface;
-import pl.slaszu.gpw.dataprovider.stocksource.domain.StockDto;
-import pl.slaszu.gpw.dataprovider.stocksource.domain.exception.FetchStocksException;
+import pl.slaszu.gpw.dataprovider.domain.exception.FetchStocksException;
+import pl.slaszu.gpw.dataprovider.domain.DataProviderInterface;
+import pl.slaszu.gpw.dataprovider.domain.dto.StockDto;
 
 
 import java.io.File;

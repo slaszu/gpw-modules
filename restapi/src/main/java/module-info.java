@@ -1,5 +1,7 @@
 module restapi {
     requires datacenter;
+    requires dataprovider;
+
     requires io.swagger.v3.oas.annotations;
     requires spring.beans;
     requires spring.web;

@@ -1,4 +1,4 @@
-package pl.slaszu.gpw.dataprovider.calendar;
+package pl.slaszu.gpw.dataprovider.infrastructure.calendar;
 
 import de.focus_shift.HolidayManager;
 import lombok.AllArgsConstructor;

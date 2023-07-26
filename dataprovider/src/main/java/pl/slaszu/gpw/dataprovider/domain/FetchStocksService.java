@@ -1,8 +1,8 @@
-package pl.slaszu.gpw.dataprovider.stocksource.domain;
+package pl.slaszu.gpw.dataprovider.domain;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
-import pl.slaszu.gpw.dataprovider.stocksource.domain.exception.FetchStocksException;
+import pl.slaszu.gpw.dataprovider.domain.exception.FetchStocksException;
 
 import java.util.Date;
 

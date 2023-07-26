@@ -1,4 +1,4 @@
-package pl.slaszu.gpw.dataprovider.stocksource.domain.exception;
+package pl.slaszu.gpw.dataprovider.domain.exception;
 
 import lombok.experimental.StandardException;
 

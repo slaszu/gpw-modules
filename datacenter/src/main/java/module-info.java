@@ -12,4 +12,5 @@ module datacenter {
 
     exports pl.slaszu.gpw.datacenter.application.ListStocks;
     exports pl.slaszu.gpw.datacenter.application.ListStockPrice;
+    exports pl.slaszu.gpw.datacenter.application.CreateStock;
 }

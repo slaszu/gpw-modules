@@ -1,4 +1,4 @@
-package pl.slaszu.gpw.dataprovider.stocksource.domain;
+package pl.slaszu.gpw.dataprovider.domain.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
