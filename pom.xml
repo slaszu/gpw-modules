@@ -21,6 +21,7 @@
         <module>datacenter</module>
         <module>dataprovider</module>
         <module>restapi</module>
+        <module>admin</module>
     </modules>
 
     <dependencies>
