@@ -17,40 +17,53 @@ import org.springframework.security.web.authentication.AuthenticationSuccessHand
 
 import java.io.IOException;
 
+import static org.springframework.security.config.Customizer.withDefaults;
+
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfig {
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+
         http
-            .authorizeHttpRequests((requests) -> requests
+            .authorizeHttpRequests(authorize -> authorize
                 .requestMatchers("/").permitAll()
                 .anyRequest().authenticated()
             )
-            .formLogin((form) -> form
-                .loginPage("/login")
-                .permitAll()
-            )
-            .logout((logout) -> logout.permitAll())
-            .oauth2Login().successHandler(new AuthenticationSuccessHandler() {
-
-                @Override
-                public void onAuthenticationSuccess(
-                    HttpServletRequest request,
-                    HttpServletResponse response,
-                    Authentication authentication
-                ) throws IOException, ServletException {
-
-                    Object principal = authentication.getPrincipal();
-
-                    //userService.processOAuthPostLogin(oauthUser.getEmail());
-
-                    response.sendRedirect("/list");
-                }
-            });
-
+            .oauth2Login(withDefaults())
+            .formLogin(withDefaults());
         return http.build();
+
+
+//        http
+//            .authorizeHttpRequests((requests) -> requests
+//                .requestMatchers("/").permitAll()
+//                .anyRequest().authenticated()
+//            )
+//            .formLogin((form) -> form
+//                .loginPage("/login")
+//                .permitAll()
+//            )
+//            .logout((logout) -> logout.permitAll())
+//            .oauth2Login().successHandler(new AuthenticationSuccessHandler() {
+//
+//                @Override
+//                public void onAuthenticationSuccess(
+//                    HttpServletRequest request,
+//                    HttpServletResponse response,
+//                    Authentication authentication
+//                ) throws IOException, ServletException {
+//
+//                    Object principal = authentication.getPrincipal();
+//
+//                    //userService.processOAuthPostLogin(oauthUser.getEmail());
+//
+//                    response.sendRedirect("/list");
+//                }
+//            });
+//
+//        return http.build();
     }
 
     @Bean
