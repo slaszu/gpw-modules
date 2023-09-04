@@ -4,8 +4,14 @@
     <title>Spring Security Example</title>
 </head>
 <body>
-<h1>Welcome!</h1>
+<h1>Login oauth</h1>
+<p th:text="'Date now, ' + ${date} + '!'" />
 
-<p>Click <a th:href="@{/admin}">here</a> to go to admin</p>
+<ul>
+    <li th:each="link : ${oauthLinks}">
+        <a href="" th:href="@{${link.value}}" th:text="${link.key}"></a>
+    </li>
+</ul>
+
 </body>
 </html>

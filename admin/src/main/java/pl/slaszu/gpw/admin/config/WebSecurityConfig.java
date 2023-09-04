@@ -1,23 +1,11 @@
 package pl.slaszu.gpw.admin.config;
 
-import jakarta.servlet.ServletException;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
-import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
-
-import java.io.IOException;
-
-import static org.springframework.security.config.Customizer.withDefaults;
+import org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter;
 
 @Configuration
 @EnableWebSecurity
@@ -28,13 +16,22 @@ public class WebSecurityConfig {
 
         http
             .authorizeHttpRequests(authorize -> authorize
-                .requestMatchers("/").permitAll()
+                .requestMatchers("/", "/login_oauth").permitAll()
                 .anyRequest().authenticated()
             )
-            .oauth2Login(withDefaults())
-            .formLogin(withDefaults());
-        return http.build();
+            //.formLogin(withDefaults())
+            .oauth2Login(httpSecurityOAuth2LoginConfigurer -> {
+                httpSecurityOAuth2LoginConfigurer.loginPage("/login_oauth");
+            });
 
+        return http.build();
+    }
+
+//    @Bean
+//    public DefaultLoginPageGeneratingFilter getDefaultLoginPage()
+//    {
+//        DefaultLoginPageGeneratingFilter defaultLoginPageGeneratingFilter = new DefaultLoginPageGeneratingFilter();
+//    }
 
 //        http
 //            .authorizeHttpRequests((requests) -> requests
@@ -64,17 +61,17 @@ public class WebSecurityConfig {
 //            });
 //
 //        return http.build();
-    }
-
-    @Bean
-    public UserDetailsService userDetailsService() {
-        UserDetails user =
-            User.withDefaultPasswordEncoder()
-                .username("user")
-                .password("password")
-                .roles("USER")
-                .build();
-
-        return new InMemoryUserDetailsManager(user);
-    }
+//    }
+//
+//    @Bean
+//    public UserDetailsService userDetailsService() {
+//        UserDetails user =
+//            User.withDefaultPasswordEncoder()
+//                .username("user")
+//                .password("password")
+//                .roles("USER")
+//                .build();
+//
+//        return new InMemoryUserDetailsManager(user);
+//    }
 }

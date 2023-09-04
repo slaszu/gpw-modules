@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import java.time.LocalDate;
 
 @Controller
-public class HomeController {
+public class AdminController {
 
     @GetMapping("/admin")
     public String index(Model model) {
