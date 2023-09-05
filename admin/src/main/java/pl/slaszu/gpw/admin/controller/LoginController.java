@@ -25,7 +25,7 @@ public class LoginController {
             oauthLinks.put(
                 clientRegistration.getClientName(),
                 OAuth2AuthorizationRequestRedirectFilter.DEFAULT_AUTHORIZATION_REQUEST_BASE_URI.concat("/").concat(
-                    clientRegistration.getClientName().toLowerCase()
+                    clientRegistration.getRegistrationId()
                 )
             );
         });
