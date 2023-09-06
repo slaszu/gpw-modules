@@ -10,6 +10,10 @@ public class CustomOAuth2UserService extends DefaultOAuth2UserService {
     public OAuth2User loadUser(OAuth2UserRequest userRequest) throws OAuth2AuthenticationException {
         OAuth2User oAuth2User = super.loadUser(userRequest);
 
-        return new CustomOAuth2User(oAuth2User, userRequest.getClientRegistration().getRegistrationId());
+        Provider provider = Provider.valueOf(userRequest.getClientRegistration().getRegistrationId().toUpperCase());
+
+
+
+        return new CustomOAuth2User(oAuth2User, provider);
     }
 }

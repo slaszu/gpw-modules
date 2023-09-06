@@ -10,11 +10,11 @@ public class CustomOAuth2User implements OAuth2User {
 
     private OAuth2User oauth2User;
 
-    private String providerName;
+    private Provider provider;
 
-    public CustomOAuth2User(OAuth2User oauth2User, String providerName) {
+    public CustomOAuth2User(OAuth2User oauth2User, Provider provider) {
         this.oauth2User = oauth2User;
-        this.providerName = providerName;
+        this.provider = provider;
     }
 
     @Override
@@ -34,12 +34,12 @@ public class CustomOAuth2User implements OAuth2User {
 
     @Override
     public String getName() {
-        return "User %s (from %s)".formatted(this.getNameByStrategy(), this.providerName);
+        return "User %s (from %s)".formatted(this.getNameByStrategy(), this.provider.toString());
     }
 
     private String getNameByStrategy() {
 
-        List<String> fields = Arrays.asList("asdasd", "name", "email", "login");
+        List<String> fields = Arrays.asList("name", "email", "login");
 
         for (String field : fields) {
             String attribute = this.oauth2User.getAttribute(field);
