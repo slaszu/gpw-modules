@@ -3,7 +3,7 @@ package pl.slaszu.gpw.admin.db;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import pl.slaszu.gpw.admin.oauth.Provider;
+import pl.slaszu.gpw.admin.oauth.provider.Provider;
 
 import java.time.LocalDateTime;
 

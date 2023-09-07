@@ -1,53 +1,32 @@
 package pl.slaszu.gpw.admin.oauth;
 
+import lombok.AllArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.oauth2.core.user.OAuth2User;
+import pl.slaszu.gpw.admin.db.User;
 
-import java.util.*;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
 
+@AllArgsConstructor
 public class CustomOAuth2User implements OAuth2User {
 
-    private OAuth2User oauth2User;
-
-    private Provider provider;
-
-    public CustomOAuth2User(OAuth2User oauth2User, Provider provider) {
-        this.oauth2User = oauth2User;
-        this.provider = provider;
-    }
+    private User user;
 
     @Override
     public Map<String, Object> getAttributes() {
-        return this.oauth2User.getAttributes();
+        return new HashMap<>();
     }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-
-
-        Collection<GrantedAuthority> authorities = new ArrayList<>(this.oauth2User.getAuthorities());
-        authorities.add(new SimpleGrantedAuthority("ADMIN"));
-
-        return authorities;
+        return AuthorityUtils.commaSeparatedStringToAuthorityList(this.user.getAuthorities());
     }
 
     @Override
     public String getName() {
-        return "User %s (from %s)".formatted(this.getNameByStrategy(), this.provider.toString());
-    }
-
-    private String getNameByStrategy() {
-
-        List<String> fields = Arrays.asList("name", "email", "login");
-
-        for (String field : fields) {
-            String attribute = this.oauth2User.getAttribute(field);
-            if (attribute != null) {
-                return attribute;
-            }
-        }
-
-        return this.oauth2User.getName();
+        return this.user.getRegistrationName();
     }
 }

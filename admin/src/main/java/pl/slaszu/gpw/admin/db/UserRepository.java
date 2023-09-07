@@ -1,7 +1,7 @@
 package pl.slaszu.gpw.admin.db;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import pl.slaszu.gpw.admin.oauth.Provider;
+import pl.slaszu.gpw.admin.oauth.provider.Provider;
 
 import java.util.Optional;
 
