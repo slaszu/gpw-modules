@@ -1,22 +1,15 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<html th:replace="~{layout :: layout(~{::title}, ~{::section})}">
 <head>
-    <title>Spring Security Example</title>
+    <title>Oauth login page</title>
 </head>
 <body>
-<h1>Login oauth</h1>
-<p th:text="'Date now, ' + ${date} + '!'" />
-
-<h1 th:inline="text">Hello <span th:remove="tag" sec:authentication="name">thymeleaf</span>!</h1>
-<form th:action="@{/logout}" method="post">
-    <input type="submit" value="Sign Out"/>
-</form>
-
-<ul>
-    <li th:each="link : ${oauthLinks}">
-        <a href="" th:href="@{${link.value}}" th:text="${link.key}"></a>
-    </li>
-</ul>
-
+<section>
+    <ul>
+        <li th:each="link : ${oauthLinks}">
+            <a href="" th:href="@{${link.value}}" th:text="${link.key}"></a>
+        </li>
+    </ul>
+</section>
 </body>
 </html>
