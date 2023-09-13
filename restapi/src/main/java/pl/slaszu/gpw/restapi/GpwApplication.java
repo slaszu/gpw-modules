@@ -22,7 +22,6 @@ import org.springframework.scheduling.annotation.EnableScheduling;
     info = @Info(title = "GPW stocks API", version = "1.0"),
     servers = {@Server(url = "/", description = "Default Server URL")}
 )
-@EnableCaching
 @EnableAsync
 public class GpwApplication {
 

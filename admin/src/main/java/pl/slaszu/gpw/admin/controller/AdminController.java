@@ -1,22 +1,38 @@
 package pl.slaszu.gpw.admin.controller;
 
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import pl.slaszu.gpw.datacenter.application.ListStocks.ListStocksService;
+import pl.slaszu.gpw.datacenter.application.ListStocks.StockViewModel;
 
-import java.time.LocalDate;
+import java.util.List;
 
 @Controller
 public class AdminController {
 
+    @Autowired
+    private ListStocksService listStocksService;
+
     @GetMapping("/admin")
     public String index(Model model) {
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        String currentPrincipalName = authentication.getName();
 
-        model.addAttribute("date", LocalDate.now().toString());
+
         return "admin/home";
+    }
+
+    @GetMapping("/admin/stocks")
+    public String stocks(Model model) {
+
+        List<StockViewModel> allStocks = this.listStocksService.getAllStocks();
+
+        model.addAttribute("allStocks", allStocks);
+        return "admin/stocks";
+    }
+
+    @GetMapping("/admin/stock_prices")
+    public String stockPrices(Model model) {
+        return "admin/stock_prices";
     }
 }
