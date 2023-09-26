@@ -9,17 +9,23 @@
         Stocks <span th:text="${#lists.size(allStocks)}">0</span>
     </p>
 
-    <table>
+    <table class="table">
+        <thead>
         <tr>
-            <th>NAME</th>
-            <th>CODE</th>
-            <th>prices</th>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Code</th>
+            <th scope="col">Prices</th>
         </tr>
-        <tr th:each="stock : ${allStocks}">
+        </thead>
+        <tbody>
+        <tr th:each="stock,iter : ${allStocks}">
+            <th scope="row" th:text="${iter.index + 1}">1</th>
             <td th:text="${stock.name}">name</td>
             <td th:text="${stock.code}">code</td>
             <td><a th:href="@{/admin/stock_prices/{code}(code=${stock.code})}">see</a></td>
         </tr>
+        </tbody>
     </table>
 </section>
 </body>

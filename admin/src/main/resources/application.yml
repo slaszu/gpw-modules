@@ -9,10 +9,6 @@ spring:
             scope:
               - user:email
 
-  datasource:
-    url: jdbc:mysql://${MYSQL_HOST:localhost}:${MYSQL_PORT:3309}/gpw-db
-    username: gpw
-    password: gpw-password-213!
   jpa:
     hibernate:
       ddl-auto: update
@@ -23,3 +19,5 @@ spring:
   config:
     import:
       - classpath:config/datacenter-redis.yml
+      - classpath:config/datacenter-db.yml
+      - test.yml

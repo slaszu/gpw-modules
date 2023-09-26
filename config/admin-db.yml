@@ -1,0 +1,5 @@
+spring:
+  datasource:
+    url: jdbc:mysql://${MYSQL_HOST:localhost}:${MYSQL_PORT:3309}/gpw-db
+    username: gpw
+    password: gpw-password-213!
