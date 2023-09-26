@@ -21,8 +21,6 @@
         </dependency>
 
 
-
-
         <dependency>
             <groupId>pl.slaszu.gpw</groupId>
             <artifactId>gpw-modules-datacenter</artifactId>

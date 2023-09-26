@@ -1,0 +1,6 @@
+spring:
+  cache:
+    type: redis
+  data.redis:
+    host: ${REDIS_HOST:127.0.0.1}
+    port: ${REDIS_PORT:3308}

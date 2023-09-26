@@ -6,8 +6,21 @@
 <body>
 <section>
     <p>
-        Stocks
+        Stocks <span th:text="${#lists.size(allStocks)}">0</span>
     </p>
+
+    <table>
+        <tr>
+            <th>NAME</th>
+            <th>CODE</th>
+            <th>prices</th>
+        </tr>
+        <tr th:each="stock : ${allStocks}">
+            <td th:text="${stock.name}">name</td>
+            <td th:text="${stock.code}">code</td>
+            <td><a th:href="@{/admin/stock_prices/{code}(code=${stock.code})}">see</a></td>
+        </tr>
+    </table>
 </section>
 </body>
 </html>

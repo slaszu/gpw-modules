@@ -4,6 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import pl.slaszu.gpw.datacenter.application.ListStockPrice.ListStockPriceService;
+import pl.slaszu.gpw.datacenter.application.ListStockPrice.StockPriceViewModel;
 import pl.slaszu.gpw.datacenter.application.ListStocks.ListStocksService;
 import pl.slaszu.gpw.datacenter.application.ListStocks.StockViewModel;
 
@@ -14,6 +17,9 @@ public class AdminController {
 
     @Autowired
     private ListStocksService listStocksService;
+
+    @Autowired
+    private ListStockPriceService listStockPriceService;
 
     @GetMapping("/admin")
     public String index(Model model) {
@@ -31,8 +37,13 @@ public class AdminController {
         return "admin/stocks";
     }
 
-    @GetMapping("/admin/stock_prices")
-    public String stockPrices(Model model) {
+    @GetMapping("/admin/stock_prices/{stockCode}")
+    public String stockPrices(Model model, @PathVariable("stockCode") String stockCode) {
+
+        List<StockPriceViewModel> allByStockCode = this.listStockPriceService.getAllByStockCode(stockCode);
+
+        model.addAttribute("stockCode", stockCode);
+        model.addAttribute("allStockPrices", allByStockCode);
         return "admin/stock_prices";
     }
 }
