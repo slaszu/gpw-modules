@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html th:replace="~{layout :: layout(~{::title}, ~{::section})}">
+<head>
+    <title>Rest api logs</title>
+</head>
+<body>
+<section>
+    <p>
+        <div class="row">/admin/rest_api_logs/{slug}</div>
+
+        <div class="row">
+            <textarea th:utext="${#strings.arrayJoin(lines,'&#13;&#10;')}"
+                      style="height: 400px; font-size: 12px; font-family: monospace;"
+                      class="form-control">__placeholder__</textarea>
+        </div>
+    </p>
+</section>
+</body>
+</html>

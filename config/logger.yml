@@ -1,0 +1,3 @@
+logging:
+  file:
+    path: ${APP_TEMP_DIR}/log/

@@ -7,13 +7,13 @@ spring:
     properties.hibernate.jdbc.time_zone: UTC
   config:
     import:
-      - optional:classpath:gpw.yaml
+      - classpath:gpw.yml
       - classpath:config/datacenter-redis.yml
       - classpath:config/datacenter-db.yml
+      - classpath:config/logger.yml
 
 logging:
   level:
     root: WARN # all logs e.g. then WARN
     pl.slaszu.gpw: DEBUG # pl.slaszu.gpw app logs e.g. then DEBUG
-  file.path: ${gpw.default-dir}/log/
 

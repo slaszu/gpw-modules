@@ -1,3 +1,6 @@
+server:
+  port : 8081
+
 spring:
   security:
     oauth2:
@@ -20,4 +23,5 @@ spring:
     import:
       - classpath:config/datacenter-redis.yml
       - classpath:config/datacenter-db.yml
+      - classpath:config/logger.yml
       - test.yml
