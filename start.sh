@@ -1,6 +1,8 @@
 #!/bin/bash
 
-dockerComposeTypes=('mysql' 'app' 'redis')
+echo "todo: add --build option !!!!"
+
+dockerComposeTypes=('mysql' 'admin' 'restapi' 'redis')
 
 dockerComposeTypesArgs=()
 
@@ -31,6 +33,9 @@ do
     cmd="$cmd -f docker-compose-$name.yml"
 done
 cmd="$cmd up -d"
+
+echo "Create network for sure"
+eval "docker network create gpw-network"
 
 echo "Start cmd : $cmd"
 eval $cmd

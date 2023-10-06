@@ -1,6 +1,8 @@
 #!/bin/bash
 
-dockerComposeTypes=('mysql' 'app' 'redis')
+echo "todo: add all option !!!!!!!!!!!!!!!!!!!!1"
+
+dockerComposeTypes=('mysql' 'admin' 'restapi' 'redis')
 
 dockerComposeTypesArgs=()
 
@@ -18,7 +20,7 @@ done
 #default, without arg
 if [ ${#dockerComposeTypesArgs[@]} -eq 0 ]; then
     echo "Stop only app ..."
-    dockerComposeTypesArgs+=( 'app' )
+    dockerComposeTypesArgs+=( 'admin' 'restapi' )
 fi
 
 #prepare cmd

@@ -1,12 +1,12 @@
 version: '3'
 services:
-  app:
-    container_name: gpw-app
+  app-admin:
+    container_name: gpw-app-admin
     build:
       context: .
       dockerfile: ./.docker/Dockerfile
     ports:
-      - "8083:8083"
+      - "8081:8081"
     environment:
       MYSQL_HOST: mysql
       MYSQL_PORT: 3306
@@ -18,7 +18,7 @@ services:
       - gpw-network
     volumes:
       - ./.docker-volumes/app-data:/app-data
-    entrypoint: java -jar /app-build/admin/target/app-admin.jar --server.port=8083
+    entrypoint: java -jar /app-build/admin/target/app-admin.jar --server.port=8081
 
 networks:
   gpw-network:
