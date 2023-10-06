@@ -16,7 +16,8 @@ services:
     networks:
       - gpw-network
     volumes:
-      - ./docker-volumes/mysql:/var/lib/mysql
+      - ./.docker-volumes/mysql:/var/lib/mysql
 
 networks:
   gpw-network:
+    external: true

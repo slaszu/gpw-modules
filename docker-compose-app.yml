@@ -6,7 +6,7 @@ services:
       context: .
       dockerfile: ./.docker/Dockerfile
     ports:
-      - "8080:8080"
+      - "8083:8083"
     environment:
       MYSQL_HOST: mysql
       MYSQL_PORT: 3306
@@ -17,8 +17,9 @@ services:
     networks:
       - gpw-network
     volumes:
-      - ./docker-volumes/app-data:/app-data
-    entrypoint: java -jar /app-build/target/gpw-app.jar
+      - ./.docker-volumes/app-data:/app-data
+    entrypoint: java -jar /app-build/admin/target/app-admin.jar --server.port=8083
 
 networks:
   gpw-network:
+    external: true
