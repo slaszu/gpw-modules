@@ -10,10 +10,13 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
-@AllArgsConstructor
 public class CustomOAuth2User implements OAuth2User {
 
-    private User user;
+    protected User user;
+
+    public CustomOAuth2User(User user) {
+        this.user = user;
+    }
 
     @Override
     public Map<String, Object> getAttributes() {

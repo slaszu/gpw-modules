@@ -1,12 +1,14 @@
 package pl.slaszu.gpw.admin.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.oauth2.client.registration.InMemoryClientRegistrationRepository;
 import org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import java.security.Principal;
 import java.time.LocalDateTime;
 import java.util.HashMap;
 
@@ -17,7 +19,7 @@ public class LoginController {
     private InMemoryClientRegistrationRepository inMemoryClientRegistrationRepository;
 
     @GetMapping("/login_oauth")
-    public String loginOauthAction(Model model) {
+    public String loginOauthAction(Model model, Principal principal, Authentication authentication) {
         HashMap<String, String> oauthLinks = new HashMap<>();
 
 
