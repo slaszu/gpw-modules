@@ -9,7 +9,7 @@ import java.util.Optional;
 public class GoogleProvider implements ProviderInterface {
     @Override
     public String getUniqueId(OAuth2User oAuth2User) {
-        Optional<Object> idOptional = Optional.ofNullable(oAuth2User.getAttribute("id"));
+        Optional<Object> idOptional = Optional.ofNullable(oAuth2User.getAttribute("sub"));
         Object o = idOptional.orElseThrow();
 
         return o.toString();
@@ -18,7 +18,7 @@ public class GoogleProvider implements ProviderInterface {
     @Override
     public String getUserName(OAuth2User oAuth2User) {
 
-        List<String> fields = Arrays.asList("name", "email", "login");
+        List<String> fields = Arrays.asList("name", "email");
 
         for (String field : fields) {
             String attribute = oAuth2User.getAttribute(field);
