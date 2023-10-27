@@ -19,7 +19,12 @@ public class Main {
     @SneakyThrows
     public static void main(String[] args) {
 
-        TwitterClient twitterClient = new TwitterClient(TwitterCredentials.builder());
+        TwitterClient twitterClient = new TwitterClient(TwitterCredentials.builder()
+            .accessToken("-")
+            .accessTokenSecret("")
+            .apiKey("")
+            .apiSecretKey("")
+            .build());
 
         UploadMediaResponse uploadMediaResponse = twitterClient.uploadMedia(
             new File("/home/.../gold.jpg"),
