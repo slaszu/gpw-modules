@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html th:replace="~{layout :: layout(~{::title}, ~{::section})}">
+<head>
+    <title>Fetch by date done</title>
+</head>
+<body>
+<section>
+    <p>
+
+    <div class="row">
+        <h1>Result</h1>
+        <p th:text="'date: ' + ${dateOnly.date}"/>
+        <a href="/admin/fetch">Fetch another date</a>
+    </div>
+    </p>
+</section>
+</body>
+</html>

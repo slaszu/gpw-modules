@@ -7,7 +7,7 @@ spring:
     properties.hibernate.jdbc.time_zone: UTC
   config:
     import:
-      - classpath:gpw.yml
+      - classpath:dataprovider.yml
       - classpath:config/datacenter-redis.yml
       - classpath:config/datacenter-db.yml
       - classpath:config/logger.yml

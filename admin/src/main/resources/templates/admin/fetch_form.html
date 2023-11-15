@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html th:replace="~{layout :: layout(~{::title}, ~{::section})}">
+<head>
+    <title>Fetch by date</title>
+</head>
+<body>
+<section>
+    <p>
+
+    <div class="row">
+        <form th:action="@{/admin/fetch}" th:object="${dateOnly}" method="post">
+            <div class="mb-3">
+                <label class="form-label">Data notowań</label>
+                <input type="date" th:field="*{date}" class="form-control">
+                <div class="form-text">Wybierz dzień dla którego zostaną pobrane notowania</div>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+    </p>
+</section>
+</body>
+</html>

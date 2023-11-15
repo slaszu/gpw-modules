@@ -6,12 +6,12 @@ import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
-import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Service;
-import pl.slaszu.gpw.dataprovider.domain.exception.FetchStocksException;
 import pl.slaszu.gpw.dataprovider.domain.DataProviderInterface;
 import pl.slaszu.gpw.dataprovider.domain.dto.StockDto;
-
+import pl.slaszu.gpw.dataprovider.domain.exception.FetchStocksException;
+import pl.slaszu.gpw.dataprovider.infrastructure.gpwpl.GpwplConfiguration;
 
 import java.net.URL;
 import java.text.ParseException;
@@ -23,14 +23,13 @@ import java.util.List;
 
 @Service
 @Slf4j
+@PropertySource("classpath:dataprovider.yml")
 public class ArchiveDataProvider implements DataProviderInterface {
 
     private String url;
 
-    public ArchiveDataProvider(
-        @Value("${gpw.gpwpl.url-archive}") String url
-    ) {
-        this.url = url;
+    public ArchiveDataProvider(GpwplConfiguration gpwplConfiguration) {
+        this.url = gpwplConfiguration.getUrlArchive();
     }
 
     @SneakyThrows

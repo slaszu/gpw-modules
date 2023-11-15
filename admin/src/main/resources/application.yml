@@ -30,3 +30,4 @@ spring:
       - classpath:config/datacenter-db.yml
       - classpath:config/logger.yml
       - test.yml
+      - dataprovider.yml

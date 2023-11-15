@@ -1,5 +1,6 @@
 module admin {
     requires datacenter;
+    requires dataprovider;
 
     requires spring.boot;
     requires spring.boot.autoconfigure;

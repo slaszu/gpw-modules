@@ -7,12 +7,12 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
-import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Service;
-import pl.slaszu.gpw.dataprovider.domain.exception.FetchStocksException;
 import pl.slaszu.gpw.dataprovider.domain.DataProviderInterface;
 import pl.slaszu.gpw.dataprovider.domain.dto.StockDto;
-
+import pl.slaszu.gpw.dataprovider.domain.exception.FetchStocksException;
+import pl.slaszu.gpw.dataprovider.infrastructure.gpwpl.GpwplConfiguration;
 
 import java.io.File;
 import java.net.URL;
@@ -22,19 +22,16 @@ import java.util.List;
 
 @Service
 @Slf4j
+@PropertySource("classpath:dataprovider.yml")
 public class TodayDataProvider implements DataProviderInterface {
 
-    private String url;
+    private final String url;
 
-    private String dirTemp;
+    private final String dirTemp;
 
-
-    public TodayDataProvider(
-        @Value("${gpw.gpwpl.url-today}") String url,
-        @Value("${gpw.gpwpl.dir-temp}") String dirTemp
-    ) {
-        this.url = url;
-        this.dirTemp = dirTemp;
+    public TodayDataProvider(GpwplConfiguration gpwplConfiguration) {
+        this.url = gpwplConfiguration.getUrlToday();
+        this.dirTemp = gpwplConfiguration.getTempDir();
     }
 
     @SneakyThrows
