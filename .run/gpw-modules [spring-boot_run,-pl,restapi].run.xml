@@ -1,5 +1,5 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="gpw-modules [spring-boot:run,-pl,restapi...]" type="MavenRunConfiguration" factoryName="Maven" nameIsGenerated="true">
+  <configuration default="false" name="gpw-modules [spring-boot:run,-pl,restapi]" type="MavenRunConfiguration" factoryName="Maven" nameIsGenerated="true">
     <MavenSettings>
       <option name="myGeneralSettings" />
       <option name="myRunnerSettings">
@@ -20,6 +20,7 @@
       </option>
       <option name="myRunnerParameters">
         <MavenRunnerParameters>
+          <option name="cmdOptions" />
           <option name="profiles">
             <set />
           </option>
@@ -28,12 +29,14 @@
               <option value="spring-boot:run" />
               <option value="-pl" />
               <option value="restapi" />
-              <option value="-Dspring-boot.run.arguments=--server.port=8081" />
             </list>
           </option>
           <option name="pomFileName" />
           <option name="profilesMap">
             <map />
+          </option>
+          <option name="projectsCmdOptionValues">
+            <list />
           </option>
           <option name="resolveToWorkspace" value="false" />
           <option name="workingDirPath" value="$PROJECT_DIR$" />
