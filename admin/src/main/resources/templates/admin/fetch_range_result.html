@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html th:replace="~{layout :: layout(~{::title}, ~{::section})}">
+<head>
+    <title>Fetch by range of dates done</title>
+</head>
+<body>
+<section>
+    <p>
+
+    <div class="row">
+        <h1>Result</h1>
+        <p th:text="'date from: ' + ${dateRange.dateFrom}"/>
+        <p th:text="'date to: ' + ${dateRange.dateTo}"/>
+        <a href="/admin/fetch">Fetch another range of dates</a>
+    </div>
+    </p>
+</section>
+</body>
+</html>
