@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+
 import pl.slaszu.gpw.admin.service.LoggingFileReader;
 import pl.slaszu.gpw.datacenter.application.ListStockPrice.ListStockPriceService;
 import pl.slaszu.gpw.datacenter.application.ListStockPrice.StockPriceViewModel;
@@ -26,7 +27,6 @@ public class AdminController {
 
     @GetMapping("/admin")
     public String index(Model model) {
-
 
         return "admin/home";
     }
@@ -54,7 +54,7 @@ public class AdminController {
     public String getRestApiLogs(
         Model model,
         @Value("${logging.file.path}") String logFilePath,
-        @PathVariable( name = "slug", required = false) String slug
+        @PathVariable(name = "slug", required = false) String slug
     ) throws IOException {
 
         model.addAttribute("lines", (new LoggingFileReader(logFilePath)).getContent(slug));

@@ -40,6 +40,9 @@ public class DataChangedListener {
         }
 
         String code = event.getStockPrice().getStock().getCode();
+        if (code == null) {
+            return;
+        }
         stockPriceCache.evictIfPresent(code.toLowerCase());
         log.debug("Cache for stock_price:%s cleared".formatted(code));
 

@@ -14,7 +14,7 @@
     <packaging>pom</packaging>
 
     <properties>
-        <java.version>19</java.version>
+        <java.version>17</java.version>
     </properties>
 
     <modules>
@@ -22,7 +22,7 @@
         <module>dataprovider</module>
         <module>restapi</module>
         <module>admin</module>
-        <module>twitter</module>
+<!--        <module>twitter</module>-->
     </modules>
 
     <dependencies>

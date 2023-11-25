@@ -47,7 +47,7 @@ public class FetchStockService {
             this.createStockService.create(command);
         });
 
-        log.info("Stock fetched and saved for date %s".formatted(date.));
+        log.info("Stock fetched and saved for date %s".formatted(date.toString()));
     }
 
     @Async

@@ -2,12 +2,14 @@ package pl.slaszu.gpw.dataprovider.infrastructure.gpwpl.dataprovider;
 
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
+
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Service;
+
 import pl.slaszu.gpw.dataprovider.domain.DataProviderInterface;
 import pl.slaszu.gpw.dataprovider.domain.dto.StockDto;
 import pl.slaszu.gpw.dataprovider.domain.exception.FetchStocksException;
@@ -54,7 +56,6 @@ public class ArchiveDataProvider implements DataProviderInterface {
             result.add(this.fromRow(row));
         }
 
-
         return result;
     }
 
@@ -75,6 +76,5 @@ public class ArchiveDataProvider implements DataProviderInterface {
             date
         );
     }
-
 
 }

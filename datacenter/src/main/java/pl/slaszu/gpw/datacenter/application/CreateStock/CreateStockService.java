@@ -99,7 +99,7 @@ public class CreateStockService {
         5. else create new stock entity
          */
 
-        // TODO: 25/03/2023 write unit tests to this bisnes logic 
+        // TODO: 25/03/2023 write unit tests to this bigness logic
 
         if (!code.equals("")) {
             byCode = this.stockRepository.getByCode(command.getCode());
