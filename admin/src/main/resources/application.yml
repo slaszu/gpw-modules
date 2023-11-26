@@ -8,12 +8,12 @@ spring:
         registration:
 
           google:
-            clientId: 40855967310-uml11skhtfk742dmv4753ksq04rj34g7.apps.googleusercontent.com
-            clientSecret: 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
+            clientId: ${google.clientId}
+            clientSecret: ${google.clientSecure}
 
           github:
-            clientId: e15011ab38988136b693
-            clientSecret: 9e73b084d886620ee8bec58593bd1a782aa70429
+            clientId: ${dev.github.clientId}
+            clientSecret: ${dev.github.clientSecret}
             scope:
               - user:email
 
@@ -31,3 +31,4 @@ spring:
       - classpath:config/logger.yml
       - test.yml
       - dataprovider.yml
+      - classpath:config/secure/oauth-credentials.yml
