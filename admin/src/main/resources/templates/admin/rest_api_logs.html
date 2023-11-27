@@ -6,13 +6,35 @@
 <body>
 <section>
     <p>
-        <div class="row">/admin/rest_api_logs/{slug}</div>
+    <div class="row">
 
-        <div class="row">
+        <form th:action="@{/admin/rest_api_logs}" method="get">
+            <div class="mb-3">
+                <label class="form-label">Slug</label>
+
+                <input type="text" name="slug"
+                       th:value= "${param.slug}"
+                       th:unless="${param.slug == null}"
+                       class="form-control">
+
+                <input type="text" name="slug"
+                       value= ""
+                       th:unless="${param.slug != null}"
+                       class="form-control">
+
+                <div class="form-text">Wpisz string który ma zawierać linia</div>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+
+    <div class="row">
+
+
             <textarea th:utext="${#strings.arrayJoin(lines,'&#13;&#10;')}"
                       style="height: 400px; font-size: 12px; font-family: monospace;"
                       class="form-control">__placeholder__</textarea>
-        </div>
+    </div>
     </p>
 </section>
 </body>

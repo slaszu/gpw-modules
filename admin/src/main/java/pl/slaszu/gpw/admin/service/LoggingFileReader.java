@@ -32,12 +32,12 @@ public class LoggingFileReader {
 
         Collections.reverse(lines);
 
-        if (slug != null) {
+        if (slug != null && !slug.isEmpty()) {
             lines = lines.stream().filter(s -> s.indexOf(slug) > 0).collect(Collectors.toList());
         }
 
-        if (lines.size() > 100) {
-            lines = lines.subList(0, 100);
+        if (lines.size() > 1000) {
+            lines = lines.subList(0, 1000);
         }
 
         return lines;

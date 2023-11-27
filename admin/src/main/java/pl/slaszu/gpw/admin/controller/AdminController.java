@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import pl.slaszu.gpw.admin.service.LoggingFileReader;
 import pl.slaszu.gpw.datacenter.application.ListStockPrice.ListStockPriceService;
@@ -50,11 +51,11 @@ public class AdminController {
         return "admin/stock_prices";
     }
 
-    @GetMapping({"/admin/rest_api_logs", "/admin/rest_api_logs/{slug}"})
+    @GetMapping({"/admin/rest_api_logs"})
     public String getRestApiLogs(
         Model model,
         @Value("${logging.file.path}") String logFilePath,
-        @PathVariable(name = "slug", required = false) String slug
+        @RequestParam(name = "slug", required = false) String slug
     ) throws IOException {
 
         model.addAttribute("lines", (new LoggingFileReader(logFilePath)).getContent(slug));
