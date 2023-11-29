@@ -22,7 +22,8 @@
         <module>dataprovider</module>
         <module>restapi</module>
         <module>admin</module>
-<!--        <module>twitter</module>-->
+        <module>twitter-kotlin</module>
+        <!--        <module>twitter</module>-->
     </modules>
 
     <dependencies>
