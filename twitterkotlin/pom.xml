@@ -9,7 +9,7 @@
         <version>1.0</version>
     </parent>
 
-    <artifactId>twitter-kotlin</artifactId>
+    <artifactId>twitterkotlin</artifactId>
 
 <!--    <artifactId>kotlin-test-maven</artifactId>-->
 <!--    <groupId>org.example</groupId>-->
