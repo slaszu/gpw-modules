@@ -86,12 +86,6 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot</artifactId>
         </dependency>
-        <dependency>
-            <groupId>pl.slaszu.gpw</groupId>
-            <artifactId>twitter-kotlin</artifactId>
-            <version>1.0</version>
-            <scope>compile</scope>
-        </dependency>
 
     </dependencies>
 

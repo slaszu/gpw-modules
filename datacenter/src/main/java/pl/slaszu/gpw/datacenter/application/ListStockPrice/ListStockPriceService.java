@@ -16,4 +16,8 @@ public class ListStockPriceService {
     public List<StockPriceViewModel> getAllByStockCode(String code) {
         return this.stockPriceViewModelRepository.getAllByStockCode(code);
     }
+
+    public List<StockPriceViewModel> getAllByStockCode(String code, Integer lastDaysQty) {
+        return this.getAllByStockCode(code).stream().limit(lastDaysQty).toList();
+    }
 }
