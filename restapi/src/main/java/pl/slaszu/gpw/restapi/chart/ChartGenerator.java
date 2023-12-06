@@ -3,12 +3,22 @@ package pl.slaszu.gpw.restapi.chart;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartUtils;
 import org.jfree.chart.JFreeChart;
+import org.jfree.chart.axis.DateAxis;
+import org.jfree.chart.axis.LogAxis;
+import org.jfree.chart.axis.NumberAxis;
+import org.jfree.chart.axis.SymbolAxis;
+import org.jfree.chart.axis.Timeline;
+import org.jfree.chart.axis.ValueAxis;
+import org.jfree.chart.plot.XYPlot;
+import org.jfree.chart.renderer.xy.CandlestickRenderer;
+import org.jfree.chart.renderer.xy.XYItemRenderer;
 import org.jfree.data.xy.DefaultHighLowDataset;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.Base64;
 import java.util.Date;
 import java.util.List;
@@ -60,7 +70,8 @@ public class ChartGenerator {
             volumeArray
         );
 
-        JFreeChart chart = this.createChart(defaultHighLowDataset, code);
+
+        JFreeChart chart = this.createChart(defaultHighLowDataset, code, dateArray);
         BufferedImage bufferedImage = chart.createBufferedImage(800, 600);
         byte[] bytes = ChartUtils.encodeAsPNG(bufferedImage);
         byte[] encode = Base64.getEncoder().encode(bytes);
@@ -68,13 +79,16 @@ public class ChartGenerator {
         return new String(encode);
     }
 
-    private JFreeChart createChart(final DefaultHighLowDataset dataset, String code) {
-        return ChartFactory.createCandlestickChart(
-            code.toUpperCase(),
-            "Time",
-            "Value",
-            dataset,
-            false
-        );
+    private JFreeChart createChart(final DefaultHighLowDataset dataset, String code, Date[] dateArray) {
+
+        DateAxis timeAxis = new DateAxis("date");
+
+        NumberAxis valueAxis = new NumberAxis("price");
+        valueAxis.setAutoRangeIncludesZero(false);
+
+        XYPlot plot = new XYPlot(dataset, timeAxis, valueAxis, null);
+        plot.setRenderer(new CandlestickRenderer());
+
+        return new JFreeChart(code, JFreeChart.DEFAULT_TITLE_FONT, plot, false);
     }
 }
