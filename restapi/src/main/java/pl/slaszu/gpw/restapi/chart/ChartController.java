@@ -19,7 +19,7 @@ public class ChartController {
 
     @GetMapping({"/chart/{code}/{lastDaysQty}", "/chart/{code}"})
     @Operation(summary = "get chart as base64 png")
-    public ChartModel getChartForStockCode(
+    public String getChartForStockCode(
         @PathVariable String code,
         @PathVariable(required = false) Integer lastDaysQty
     ) throws IOException {
@@ -27,10 +27,7 @@ public class ChartController {
             lastDaysQty = 30;
         }
 
-        return new ChartModel(
-            code,
-            this.chartGenerator.generate(code, lastDaysQty)
-        );
+        return this.chartGenerator.generate(code, lastDaysQty);
 
     }
 }
