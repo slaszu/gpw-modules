@@ -1,7 +1,6 @@
 module admin {
     requires datacenter;
     requires dataprovider;
-    requires twitterkotlin;
 
     requires spring.boot;
     requires spring.boot.autoconfigure;
