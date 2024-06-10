@@ -6,16 +6,11 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.FullyQualifiedAnnotationBeanNameGenerator;
 import org.springframework.scheduling.annotation.EnableAsync;
 
-import pl.slaszu.twitterkotlin.TestService;
-
 @SpringBootApplication
 @ComponentScan(nameGenerator = FullyQualifiedAnnotationBeanNameGenerator.class)
 @EnableAsync
 public class AdminSpringApplication {
     public static void main(String[] args) {
         SpringApplication.run(AdminSpringApplication.class, args);
-
-        TestService x = new TestService("q","x");
-        System.out.println(x.get());
     }
 }
