@@ -4,9 +4,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Repository;
+
 import pl.slaszu.gpw.datacenter.application.ListStockPrice.StockPriceViewModel;
 import pl.slaszu.gpw.datacenter.application.ListStockPrice.StockPriceViewModelRepositoryInterface;
 
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 
 @Repository
@@ -18,11 +21,23 @@ public class StockPriceViewModelRepository implements StockPriceViewModelReposit
     @Override
     public List<StockPriceViewModel> getAllByStockCode(String code) {
 
-        // TODO: 20.04.2023 sortowanie po dacie asc, desc i limit podawany w parametrze endpointu
         return this.jpaStockPriceRepository
-            .findAllByStockCode(code, PageRequest.of(0, 90, Sort.Direction.DESC, "date"))
+            .findAllByStockCode(code,
+                PageRequest.of(0, 90, Sort.Direction.DESC, "date")
+            )
             .stream().map(StockPriceViewModel::fromStockPrice)
             .toList();
 
     }
+
+    @Override
+    public List<StockPriceViewModel> getAllByStockCodeAndDateFrom(String code, Date dateFrom) {
+        return this.jpaStockPriceRepository
+            .findAllByStockCodeAndDateGreaterThanEqual(code, dateFrom,
+                PageRequest.of(0, 90, Sort.Direction.DESC, "date")
+            )
+            .stream().map(StockPriceViewModel::fromStockPrice)
+            .toList();
+    }
+
 }
