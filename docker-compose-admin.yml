@@ -10,6 +10,8 @@ services:
     expose:
       - "80"
       - "443"
+    env_file:
+      - ./config/secure/docker.env
     environment:
       TZ: Europe/Warsaw
       VIRTUAL_HOST: www.gpwadmin.g-sitemap-generator.com,gpwadmin.g-sitemap-generator.com
@@ -26,7 +28,9 @@ services:
       - my-network
     volumes:
       - ./.docker-volumes/app-data:/app-data
-    entrypoint: java -jar /app-build/admin/target/app-admin.jar --server.port=80
+      - ./admin-github-release.jar:/app-build/admin-prod.jar
+    entrypoint: java -jar /app-build/admin-prod.jar --server.port=8081
+
 
 networks:
   gpw-network:

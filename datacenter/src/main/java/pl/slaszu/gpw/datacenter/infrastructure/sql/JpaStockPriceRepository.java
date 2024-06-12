@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository;
 import pl.slaszu.gpw.datacenter.domain.model.StockPrice;
 import pl.slaszu.gpw.datacenter.domain.model.Stock;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -20,4 +21,6 @@ public interface JpaStockPriceRepository extends JpaRepository<StockPrice, UUID>
     public List<StockPrice> findAllByStockCode(String stockCode);
 
     public List<StockPrice> findAllByStockCode(String stockCode, Pageable pageable);
+
+    public List<StockPrice> findAllByStockCodeAndDateGreaterThanEqual(String stockCode, Date date, Pageable pageable);
 }
