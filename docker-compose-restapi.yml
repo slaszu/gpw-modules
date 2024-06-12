@@ -18,7 +18,8 @@ services:
       - gpw-network
     volumes:
       - ./.docker-volumes/app-data:/app-data
-    entrypoint: java -jar /app-build/restapi/target/app-restapi.jar --server.port=8080
+      - ./restapi-github-release.jar:/app-build/restapi-prod.jar
+    entrypoint: java -jar /app-build/restapi-prod.jar --server.port=8080
 
 networks:
   gpw-network:
