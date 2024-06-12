@@ -5,11 +5,11 @@ spring:
         registration:
 
           google:
-            clientId: ${google.clientId}
-            clientSecret: ${google.clientSecure}
+            clientId: ${GOOGLE_CLIENT_ID}
+            clientSecret: ${GOOGLE_CLIENT_SECRET}
 
           github:
-            clientId: ${prod.github.clientId}
-            clientSecret: ${prod.github.clientSecret}
+            clientId: ${GITHUB_CLIENT_ID_PROD}
+            clientSecret: ${GITHUB_CLIENT_SECRET_PROD}
             scope:
               - user:email
