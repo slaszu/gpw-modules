@@ -9,8 +9,10 @@ import pl.slaszu.gpw.datacenter.application.ListStockPrice.StockPriceViewModel;
 import pl.slaszu.gpw.datacenter.application.ListStockPrice.StockPriceViewModelRepositoryInterface;
 
 import java.time.LocalDate;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Repository
 public class StockPriceViewModelRepository implements StockPriceViewModelRepositoryInterface {
@@ -32,12 +34,22 @@ public class StockPriceViewModelRepository implements StockPriceViewModelReposit
 
     @Override
     public List<StockPriceViewModel> getAllByStockCodeAndDateFrom(String code, Date dateFrom) {
-        return this.jpaStockPriceRepository
+
+        /*
+        1. get order asc mutable list
+        2. reverse order
+        3. return unmutable list
+         */
+        var result = this.jpaStockPriceRepository
             .findAllByStockCodeAndDateGreaterThanEqual(code, dateFrom,
-                PageRequest.of(0, 90, Sort.Direction.DESC, "date")
+                PageRequest.of(0, 90, Sort.Direction.ASC, "date")
             )
             .stream().map(StockPriceViewModel::fromStockPrice)
-            .toList();
+            .collect(Collectors.toList());
+
+        Collections.reverse(result);
+
+        return result.stream().toList();
     }
 
 }

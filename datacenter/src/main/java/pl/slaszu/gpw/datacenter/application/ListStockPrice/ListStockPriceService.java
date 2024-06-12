@@ -19,7 +19,6 @@ public class ListStockPriceService {
         return this.stockPriceViewModelRepository.getAllByStockCode(code);
     }
 
-//    @Cacheable(value = "stock_price", key = "#code.toLowerCase()")
     public List<StockPriceViewModel> getAllByStockCodeAndDateFrom(String code, Date dateFrom) {
         return this.stockPriceViewModelRepository.getAllByStockCodeAndDateFrom(code, dateFrom);
     }

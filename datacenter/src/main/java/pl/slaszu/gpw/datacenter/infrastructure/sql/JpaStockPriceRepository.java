@@ -4,14 +4,14 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
-import pl.slaszu.gpw.datacenter.domain.model.StockPrice;
-import pl.slaszu.gpw.datacenter.domain.model.Stock;
 
-import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
+
+import pl.slaszu.gpw.datacenter.domain.model.Stock;
+import pl.slaszu.gpw.datacenter.domain.model.StockPrice;
 
 @Repository
 public interface JpaStockPriceRepository extends JpaRepository<StockPrice, UUID> {
