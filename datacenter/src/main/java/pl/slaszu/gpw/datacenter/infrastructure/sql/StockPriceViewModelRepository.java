@@ -5,14 +5,13 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Repository;
 
-import pl.slaszu.gpw.datacenter.application.ListStockPrice.StockPriceViewModel;
-import pl.slaszu.gpw.datacenter.application.ListStockPrice.StockPriceViewModelRepositoryInterface;
-
-import java.time.LocalDate;
 import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
+
+import pl.slaszu.gpw.datacenter.application.ListStockPrice.StockPriceViewModel;
+import pl.slaszu.gpw.datacenter.application.ListStockPrice.StockPriceViewModelRepositoryInterface;
 
 @Repository
 public class StockPriceViewModelRepository implements StockPriceViewModelRepositoryInterface {
@@ -50,6 +49,16 @@ public class StockPriceViewModelRepository implements StockPriceViewModelReposit
         Collections.reverse(result);
 
         return result.stream().toList();
+    }
+
+    @Override
+    public List<StockPriceViewModel> getLastByStockCodeAndDateTo(String code, Date dateTo) {
+        return this.jpaStockPriceRepository
+            .findAllByStockCodeAndDateLessThanEqual(code, dateTo,
+                PageRequest.of(0, 90, Sort.Direction.DESC, "date")
+            )
+            .stream().map(StockPriceViewModel::fromStockPrice)
+            .toList();
     }
 
 }

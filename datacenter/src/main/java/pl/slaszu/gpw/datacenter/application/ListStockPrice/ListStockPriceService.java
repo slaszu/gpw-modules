@@ -22,4 +22,8 @@ public class ListStockPriceService {
     public List<StockPriceViewModel> getAllByStockCodeAndDateFrom(String code, Date dateFrom) {
         return this.stockPriceViewModelRepository.getAllByStockCodeAndDateFrom(code, dateFrom);
     }
+
+    public List<StockPriceViewModel> getLastByStockCodeAndDateTo(String code, Date dateTo) {
+        return this.stockPriceViewModelRepository.getLastByStockCodeAndDateTo(code, dateTo);
+    }
 }

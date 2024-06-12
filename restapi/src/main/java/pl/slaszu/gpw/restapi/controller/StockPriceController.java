@@ -39,4 +39,13 @@ public class StockPriceController {
     ) {
         return this.listStockPriceService.getAllByStockCodeAndDateFrom(stockCode, dateFrom);
     }
+
+    @GetMapping("/last/{stockCode}/{dateTo}")
+    @Operation(summary = "get last 90 stock prices for stock code less or equals to given date from")
+    public List<StockPriceViewModel> getLastByStockCodeAndDateTo(
+        @PathVariable String stockCode,
+        @PathVariable @DateTimeFormat(pattern = "yyyy-MM-dd") Date dateTo
+    ) {
+        return this.listStockPriceService.getLastByStockCodeAndDateTo(stockCode, dateTo);
+    }
 }
