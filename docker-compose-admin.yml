@@ -7,9 +7,16 @@ services:
       dockerfile: ./.docker/Dockerfile
     ports:
       - "8081:8081"
+    expose:
+      - "80"
+      - "443"
     env_file:
       - ./config/secure/docker.env
     environment:
+      TZ: Europe/Warsaw
+      VIRTUAL_HOST: www.gpwadmin.g-sitemap-generator.com,gpwadmin.g-sitemap-generator.com
+      VIRTUAL_HOST_ALIAS: gpwadmin.g-sitemap-generator.com
+      LETSENCRYPT_HOST: gpwadmin.g-sitemap-generator.com,www.gpwadmin.g-sitemap-generator.com
       MYSQL_HOST: mysql
       MYSQL_PORT: 3306
       REDIS_HOST: redis
@@ -18,12 +25,15 @@ services:
       spring_profiles_active: prod
     networks:
       - gpw-network
+      - my-network
     volumes:
       - ./.docker-volumes/app-data:/app-data
       - ./admin-github-release.jar:/app-build/admin-prod.jar
-    entrypoint: java -jar /app-build/admin-prod.jar --server.port=8081
+    entrypoint: java -jar /app-build/admin-prod.jar --server.port=80
 
 
 networks:
   gpw-network:
     external: true
+  my-network:
+    external: true # this network should exist in nginx-proxy docker-compose.yml
