@@ -8,7 +8,7 @@ cmd="curl -L $repo -o ./APP-github-release.jar"
 cmd=${cmd/TAG/"$1"}
 
 cmd1=${cmd//APP/"admin"}
-cmd2=${cmd//APP/"restapi"}
+cmd2=${cmd//APP/"scaner"}
 
 echo "Command: $cmd1"
 eval $cmd1

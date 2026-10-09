@@ -7,7 +7,7 @@
         <artifactId>gpw-modules</artifactId>
         <version>1.0</version>
     </parent>
-    <artifactId>gpw-modules-restapi</artifactId>
+    <artifactId>gpw-modules-scaner</artifactId>
 
     <dependencies>
         <dependency>
@@ -34,7 +34,7 @@
     </dependencies>
 
     <build>
-        <finalName>app-restapi</finalName>
+        <finalName>app-scaner</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>

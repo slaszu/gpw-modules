@@ -27,4 +27,4 @@ jobs:
         with:
           files: |
             admin/target/app-admin.jar
-            restapi/target/app-restapi.jar
+            restapi/target/app-scaner.jar

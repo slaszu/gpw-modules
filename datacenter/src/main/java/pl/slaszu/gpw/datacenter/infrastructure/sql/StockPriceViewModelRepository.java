@@ -24,7 +24,7 @@ public class StockPriceViewModelRepository implements StockPriceViewModelReposit
 
         return this.jpaStockPriceRepository
             .findAllByStockCode(code,
-                PageRequest.of(0, 90, Sort.Direction.DESC, "date")
+                PageRequest.of(0, 400, Sort.Direction.DESC, "date")
             )
             .stream().map(StockPriceViewModel::fromStockPrice)
             .toList();
@@ -41,7 +41,7 @@ public class StockPriceViewModelRepository implements StockPriceViewModelReposit
          */
         var result = this.jpaStockPriceRepository
             .findAllByStockCodeAndDateGreaterThanEqual(code, dateFrom,
-                PageRequest.of(0, 90, Sort.Direction.ASC, "date")
+                PageRequest.of(0, 400, Sort.Direction.ASC, "date")
             )
             .stream().map(StockPriceViewModel::fromStockPrice)
             .collect(Collectors.toList());
@@ -55,7 +55,7 @@ public class StockPriceViewModelRepository implements StockPriceViewModelReposit
     public List<StockPriceViewModel> getLastByStockCodeAndDateTo(String code, Date dateTo) {
         return this.jpaStockPriceRepository
             .findAllByStockCodeAndDateLessThanEqual(code, dateTo,
-                PageRequest.of(0, 90, Sort.Direction.DESC, "date")
+                PageRequest.of(0, 400, Sort.Direction.DESC, "date")
             )
             .stream().map(StockPriceViewModel::fromStockPrice)
             .toList();

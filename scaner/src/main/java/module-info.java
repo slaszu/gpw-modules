@@ -1,4 +1,4 @@
-module restapi {
+module scaner {
     requires datacenter;
     requires dataprovider;
 

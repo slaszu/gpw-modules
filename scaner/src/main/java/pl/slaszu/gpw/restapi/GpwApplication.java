@@ -18,11 +18,6 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 @SpringBootApplication
 @ComponentScan(nameGenerator = FullyQualifiedAnnotationBeanNameGenerator.class)
 @EnableScheduling
-@OpenAPIDefinition(
-    info = @Info(title = "GPW stocks API", version = "1.0"),
-    servers = {@Server(url = "/", description = "Default Server URL")}
-)
-@EnableAsync
 public class GpwApplication {
 
     public static void main(String[] args) {

@@ -20,7 +20,7 @@
     <modules>
         <module>datacenter</module>
         <module>dataprovider</module>
-        <module>restapi</module>
+        <module>scaner</module>
         <module>admin</module>
     </modules>
 
