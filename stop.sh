@@ -2,7 +2,7 @@
 
 echo "todo: add all option !!!!!!!!!!!!!!!!!!!!1"
 
-dockerComposeTypes=('mysql' 'admin' 'restapi' 'redis')
+dockerComposeTypes=('mysql' 'admin' 'scaner')
 
 dockerComposeTypesArgs=()
 

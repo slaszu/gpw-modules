@@ -16,7 +16,7 @@ services:
     volumes:
       - ./.docker-volumes/app-data:/app-data
       - ./scaner-github-release.jar:/app-build/scaner-prod.jar
-    entrypoint: java -jar /app-build/scaner-prod.jar
+    entrypoint: java -Xms64m -Xmx256m -XX:+UseSerialGC -XX:MetaspaceSize=64m -XX:MaxMetaspaceSize=128m -jar /app-build/scaner-prod.jar
 
 networks:
   gpw-network:
