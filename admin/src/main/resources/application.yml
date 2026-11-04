@@ -26,7 +26,6 @@ spring:
 
   config:
     import:
-      - classpath:config/datacenter-redis.yml
       - classpath:config/datacenter-db.yml
       - classpath:config/logger.yml
       - test.yml
