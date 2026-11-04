@@ -24,7 +24,7 @@ if [ ${#dockerComposeTypesArgs[@]} -eq 0 ]; then
 fi
 
 #prepare cmd
-cmd="docker-compose";
+cmd="docker compose";
 for name in "${dockerComposeTypesArgs[@]}"
 do
     cmd="$cmd -f docker-compose-$name.yml"

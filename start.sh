@@ -35,7 +35,7 @@ if [ ${#dockerComposeTypesArgs[@]} -eq 0 ]; then
 fi
 
 #prepare cmd
-cmd="docker-compose";
+cmd="docker compose";
 
 
 for name in "${dockerComposeTypesArgs[@]}"
