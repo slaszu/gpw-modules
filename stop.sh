@@ -20,7 +20,7 @@ done
 #default, without arg
 if [ ${#dockerComposeTypesArgs[@]} -eq 0 ]; then
     echo "Stop only app ..."
-    dockerComposeTypesArgs+=( 'admin' 'restapi' )
+    dockerComposeTypesArgs+=( 'admin' 'scaner' )
 fi
 
 #prepare cmd
