@@ -8,10 +8,12 @@ spring:
   config:
     import:
       - classpath:dataprovider.yml
-      - classpath:config/datacenter-db.yml
-      - classpath:config/logger.yml
   main:
     web-application-type: none
+  datasource:
+    url: jdbc:mysql://${MYSQL_HOST:68.183.69.107}:${MYSQL_PORT:3309}/gpw-db
+    username: gpw
+    password: gpw-password-213!
 
 logging:
   level:

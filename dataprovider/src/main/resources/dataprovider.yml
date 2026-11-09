@@ -2,4 +2,4 @@ gpw:
   gpwpl:
     url-today: https://www.gpw.pl/ajaxindex.php?action=GPWQuotations&start=showTable&tab=all&lang=PL&type=&full=1&format=html&download_xls=1
     url-archive: https://www.gpw.pl/archiwum-notowan?fetch=1&type=10&instrument=&date=[date]
-    dir-temp: ${APP_TEMP_DIR}/gpwpl/
+    dir-temp: ./gpw-scaner/gpwpl/
