@@ -1,0 +1,13 @@
+{
+  "resources": {
+    "includes": [
+      {
+        "pattern": "Holidays_.*\\.xml$"
+      },
+      {
+        "pattern": "jollyday\\.properties"
+      }
+    ]
+  },
+  "bundles": []
+}

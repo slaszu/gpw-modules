@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.ToString;
 import pl.slaszu.gpw.datacenter.domain.model.StockPrice;
 
 
@@ -12,6 +13,7 @@ import java.util.Date;
 
 @Getter
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
+@ToString
 public class StockPriceViewModel implements Serializable {
 
     private Float priceOpen;

@@ -1,0 +1,18 @@
+[
+  {
+    "name": "org.hibernate.bytecode.internal.bytebuddy.BytecodeProviderImpl",
+    "allPublicConstructors": true,
+    "allConstructors": true,
+    "allPublicMethods": true,
+    "allDeclaredMethods": true,
+    "allPublicFields": true,
+    "allDeclaredFields": true
+  },
+  {
+    "name": "de.focus_shift.**",
+    "allPublicConstructors": true,
+    "allPublicMethods": true,
+    "allPublicFields": true,
+    "allDeclaredClasses": true
+  }
+]

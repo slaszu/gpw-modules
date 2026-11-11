@@ -2,9 +2,11 @@ spring:
   jpa:
     hibernate:
       ddl-auto: update
-    show-sql: true
+    show-sql: false
     properties.hibernate.format_sql: true
     properties.hibernate.jdbc.time_zone: UTC
+    properties.hibernate.bytecode.provider: none
+
   config:
     import:
       - classpath:dataprovider.yml
@@ -18,5 +20,5 @@ spring:
 logging:
   level:
     root: WARN # all logs e.g. then WARN
-    pl.slaszu.gpw: DEBUG # pl.slaszu.gpw app logs e.g. then DEBUG
+    pl.slaszu.gpw: INFO # pl.slaszu.gpw app logs e.g. then DEBUG
 
