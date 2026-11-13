@@ -5,7 +5,6 @@ spring:
     show-sql: false
     properties.hibernate.format_sql: true
     properties.hibernate.jdbc.time_zone: UTC
-    properties.hibernate.bytecode.provider: none
 
   config:
     import:

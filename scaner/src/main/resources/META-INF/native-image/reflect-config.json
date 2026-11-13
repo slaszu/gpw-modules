@@ -1,5 +1,15 @@
 [
   {
+    "name": "net.bytebuddy.**",
+    "allPublicConstructors": true,
+    "allConstructors": true,
+    "allPublicMethods": true,
+    "allDeclaredMethods": true,
+    "allPublicFields": true,
+    "allDeclaredFields": true,
+    "allDeclaredClasses": true
+  },
+  {
     "name": "org.hibernate.bytecode.internal.bytebuddy.BytecodeProviderImpl",
     "allPublicConstructors": true,
     "allConstructors": true,

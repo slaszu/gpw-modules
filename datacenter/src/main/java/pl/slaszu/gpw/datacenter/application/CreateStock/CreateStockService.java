@@ -1,18 +1,20 @@
 package pl.slaszu.gpw.datacenter.application.CreateStock;
 
-import lombok.AllArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import pl.slaszu.gpw.datacenter.application.CreateStock.Event.StockChangedEvent;
-import pl.slaszu.gpw.datacenter.application.CreateStock.Event.StockPriceChangedEvent;
+
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+import java.util.Optional;
+import java.util.UUID;
+
+import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import pl.slaszu.gpw.datacenter.domain.model.Stock;
 import pl.slaszu.gpw.datacenter.domain.model.StockPrice;
 import pl.slaszu.gpw.datacenter.domain.repository.StockPriceRepositoryInterface;
 import pl.slaszu.gpw.datacenter.domain.repository.StockRepositoryInterface;
-
-import java.util.*;
 
 @Service
 @AllArgsConstructor
@@ -23,13 +25,8 @@ public class CreateStockService {
 
     private StockPriceRepositoryInterface stockPriceRepository;
 
-    private ApplicationEventPublisher eventPublisher;
-
     public void create(CreateStockCommand command) {
         List<Object> events = this.save(command);
-        events.forEach(o -> {
-            this.eventPublisher.publishEvent(o);
-        });
     }
 
     @Transactional
@@ -41,21 +38,11 @@ public class CreateStockService {
         Stock stock = this.getOrCreateStock(command);
         Stock stockSaved = this.stockRepository.save(stock);
 
-        if (!stockSaved.equals(stock)) {
-            events.add(new StockChangedEvent(stockSaved));
-        }
-
         CreateStockPriceCommand createStockPriceCommand = command.getCreateStockPriceCommand();
         if (createStockPriceCommand != null) {
             // stock price
             StockPrice stockPrice = this.getOrCreateStockPrice(stockSaved, createStockPriceCommand.getDate());
             this.refreshStockPrice(stockPrice, createStockPriceCommand);
-
-            StockPrice stockPriceSaved = this.stockPriceRepository.save(stockPrice);
-
-            if (!stockPriceSaved.equals(stockPrice)) {
-                events.add(new StockPriceChangedEvent(stockPriceSaved));
-            }
         }
 
         return events;

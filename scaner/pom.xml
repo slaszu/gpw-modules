@@ -64,6 +64,11 @@
                         </executions>
                         <configuration>
                             <mainClass>pl.slaszu.gpw.restapi.GpwApplication</mainClass>
+                            <buildArgs>
+                                <buildArg>--enable-http</buildArg>
+                                <buildArg>--enable-https</buildArg>
+                                <buildArg>-H:+RuntimeClassLoading</buildArg>
+                            </buildArgs>
                         </configuration>
                     </plugin>
                 </plugins>

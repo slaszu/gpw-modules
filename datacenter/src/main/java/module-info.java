@@ -9,6 +9,7 @@ module datacenter {
     requires spring.beans;
     requires spring.tx;
     requires spring.boot.autoconfigure;
+    requires spring.boot.persistence;
 
     exports pl.slaszu.gpw.datacenter.application.ListStocks;
     exports pl.slaszu.gpw.datacenter.application.ListStockPrice;
